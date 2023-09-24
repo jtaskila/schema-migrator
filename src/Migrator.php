@@ -54,6 +54,7 @@ class Migrator
         }
 
         $this->output->writeLine(\sprintf("Executed %s migration(s)", $count));
+        $this->connection->close();
     }
 
     /**
