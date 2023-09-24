@@ -1,0 +1,18 @@
+{
+    "name": "jtaskila/schema-migrator",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jtaskila\\SchemaMigrator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juho Taskila",
+            "email": "juho.taskila@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
