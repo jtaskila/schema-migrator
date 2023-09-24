@@ -14,8 +14,17 @@ class MigratorConfig
         $this->directory = $directory;  
     }
 
-    public function getDirectory(): ?string 
+    public function getDirectory(): string 
     {
         return $this->directory;
+    }
+
+    public function validate(): bool 
+    {
+        if (!\file_exists($this->directory)) {
+            return false;
+        }
+
+        return true;
     }
 }

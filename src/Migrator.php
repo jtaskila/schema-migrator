@@ -25,12 +25,15 @@ class Migrator
         DatabaseConfig $databaseConfig,
         MigratorConfig $migratorConfig, 
         ?OutputInterface $output = null
-    ) {
-        $this->databaseConfig = $databaseConfig;
-        if (!$this->databaseConfig->validate()) {
+    ) {        
+        if (!$databaseConfig->validate()) {
             throw new \Exception('Invalid database configuration');
         }
-
+        if (!$migratorConfig->validate()) {
+            throw new \Exception('Invalid migrator configuration');
+        }
+        
+        $this->databaseConfig = $databaseConfig;
         $this->output = $output ?? new EchoCli();        
         $this->connection = new Connection($this->databaseConfig);
         $this->databaseManager = new DatabaseManager($this->connection);
