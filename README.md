@@ -36,7 +36,7 @@ where the migrations should be searched.
 
 Constructor takes the migration directory as a parameter. Note that the path must be **absolute**.
 
-## Example 
+### Example 
 You can call the migrator from anywhere, but the simplest way to get started is to create a new file called ``migrate.php`` with the example content below.
 
 ```
@@ -63,7 +63,24 @@ $migrator->execute();
 
 ## 3. Usage
 
-The newly created ``migrate.php`` file can be executed from anywhere, but the recommended way is to run it from CLI.
+### 3.1. Creating new migrations
+1. Create a new directory called ``migrations`` to your project root.
+2. Create a new file ``1_my_first_migration.sql`` to the ``migrations directory``.
+3. Copy the example migration and paste it into the file:
+```
+CREATE TABLE my_table (
+    id int NOT NULL AUTO_INCREMENT,
+    my_column varchar(255),
+    PRIMARY KEY(id)
+);
+```
+4. Run the migrations. 
+5. Check your database, there should be a new table called ``my_table`` with two columns: ``id`` and ``my_column``.
+
+Migrations can be divided to subdirectories for clarity. You can create a directory ``migrations/my_table`` and put all the migrations affecting that specific table there.
+
+### 3.2. Executing migrations
+The ``migrate.php`` file created in the previous step can be executed from anywhere, but the recommended way is to run it from CLI.
 
 ```
 php migrate.php
