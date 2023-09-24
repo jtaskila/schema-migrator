@@ -10,6 +10,6 @@ class EchoCli implements OutputInterface
 {
     public function writeLine(string $message): void
     {
-        echo $message . "\n";
+        echo date('[Y-m-d H:i:s] ') . $message . "\n";
     }
 }

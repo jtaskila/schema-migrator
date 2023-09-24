@@ -32,7 +32,6 @@ class Migrator
         }
 
         $this->output = $output ?? new EchoCli();        
-
         $this->connection = new Connection($this->databaseConfig);
         $this->databaseManager = new DatabaseManager($this->connection);
         $this->migrationRepository = new MigrationRepository($this->connection, $migratorConfig);
@@ -43,7 +42,9 @@ class Migrator
      */
     public function execute(): void 
     {
-        $this->output->writeLine('Migrating database...');
+        $this->output->writeLine(
+            \sprintf("Migrating database '%s'...", $this->databaseConfig->getDatabase())
+        );
         $this->createDatabase();
         $count = $this->runMigrations();
 
@@ -93,7 +94,7 @@ class Migrator
 
                 if ($result) {
                     $this->output->writeLine(\sprintf(
-                        "Running migration %s",
+                        "Running migration '%s'",
                         $name
                     ));
                     $migrationCount = $migrationCount + 1;
