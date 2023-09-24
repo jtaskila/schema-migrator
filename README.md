@@ -4,6 +4,13 @@ Schema migrator is a simple 0-dependency utility for handling database migration
 
 **This library is still experimental. Usage in production is not recommended.**
 
+## Table of Contents
+1. [Installation](#1-installation)
+2. [Configuration](#2-configuration)
+3. [Usage](#3-usage)
+4. [Errors](#4-errors)
+5. [Injecting a custom output handler](#5-injecting-a-custom-output-handler)
+
 ## 1. Installation
 Install the library with composer 
 ```
