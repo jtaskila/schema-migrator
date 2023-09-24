@@ -12,9 +12,10 @@ Schema migrator is a simple 0-dependency utility for handling database migration
 5. [Injecting a custom output handler](#5-injecting-a-custom-output-handler)
 
 ## 1. Installation
-Install the library with composer 
+Install the library with composer. There is no stable release available yet, so you need to use VCS repository. 
 ```
-composer require jtaskila/schema-migrator
+composer config repositories.repo-name vcs https://github.com/jtaskila/schema-migrator
+composer require jtaskila/schema-migrator:dev-main
 ```
 
 ## 2. Configuration 
